@@ -1,0 +1,21 @@
+*{
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+  font-family:"RalewayRegular";
+  color: white;
+}
+@font-face {
+font-family: "RalewayRegular";
+src: url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
+
+}
+@font-face {
+font-family: "RalewayBold";
+src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
+
+}
+
+body{
+  background-color: #1b2123;
+}

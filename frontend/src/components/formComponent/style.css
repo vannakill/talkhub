@@ -1,0 +1,20 @@
+.post-container form{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 300px;
+}
+.post-container span{
+    margin: 0;
+}
+.button-submit{
+    margin-top: px;
+}
+.input-title{
+    margin-top: 15px;
+}
+.file-input{
+    border: 0;
+    margin:10px 0 ;
+}
