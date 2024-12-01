@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import './style.css'
 import { useState } from 'react';
-import axios from 'axios';
 import {useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../backend/context/authContext.jsx';
+import { AuthContext } from '../../authContext.jsx';
+import { Link } from 'react-router-dom'
 const Login = () => {
   const [inputs, setInputs] = useState({
     username: "",
@@ -12,13 +12,12 @@ const Login = () => {
   const [err, setError] = useState(null);
 
   const navigate = useNavigate();
-
-  const { login } = useContext(AuthContext);
-
-
+  
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+  
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,9 +37,9 @@ const Login = () => {
               <h1>
                 Вход
               </h1>
-              {err && <p>Ошибка: {err}</p>}
+              {err && <p className='error-message'> <span className='error-title'>Ошибка:</span> {err}</p>}
               <br/>
-              <br/>
+           
               <span className="subtitle"> Логин:</span>
               <br/>
               <input type="text" name="username" onChange={handleChange} required />
@@ -50,7 +49,7 @@ const Login = () => {
               <input type="password" name="password" onChange={handleChange} required/>
               <br/><br/>
               <button type="submit" className="submit-btn" onClick={handleSubmit}> Отправить </button>
-             <a href="/auth/register" className='register'>зарегестрироваться</a>
+              <Link to={"/auth/register"} className='register'> зарегестрироваться </Link>
             </form>
           </div>
         </div>

@@ -1,32 +1,47 @@
-import React, { Component } from 'react';
-import webpack from 'react'
+import React, { Component, useState } from 'react';
+import { PostComponent } from '../PostComponent/PostComponent';
 import './main.css'
-import avatar from '../avatar.jpg'
-import Post from '../PostComponent/post';
-import { useQuery } from "react-query"
+import axios from 'axios';	
 const Main = () => {
+	const [data,setPosts] = useState([])
+	const [copied, setCopied] = useState(false);
+	const [query, setQuery] = useState("");
+	const fetchData = async () =>{
+		try{
+			const res = await axios.get("/api/posts/")
+			setPosts(res.data)
+		}catch(err){
+			console.log(err)
+		 }} 
+		fetchData()
+
+	const search_params = Object.keys(Object.assign({}, ...data));
+	
+	function search(data) {
+		return data.filter((data) =>
+			search_params.some((param) =>
+			data[param].toString().toLowerCase().includes(query)
+		))}
+
 
 	return (
 		<>
-<main>
-{data ? (
-		data.map((post) => (
-			<Post
-			key={post.id}
-            id={post.id}
-			img={post.img}
-			title={post.title}
-			username={post.username}
-			userAvatar={post.userAvatar}
-            timestamp={post.timestamp}
-            tag={post.tag}
-            postText={post.postText}
-			/>
-		))
-		) : (
-		<p>Данные не доступны</p>
-	)}
-</main>
+		<div className='wrapper'>
+		<h2 className='page-title'>Главная</h2>
+		<input type="search" name="search-form" id="search-form" className="search-input" onChange={(e) => setQuery(e.target.value)} placeholder="Поиск"/>
+
+	{search(data).map((post) => ( 
+		<PostComponent
+		key={post.id}
+        id={post.id}
+		img={post.img}
+		Title={post.Title}
+        createdat={post.createdat}
+        desc={post.desc}
+		username={post.username}
+		/>
+		))}
+</div>
 		</>
 	)
 }

@@ -4,18 +4,29 @@
   box-sizing: border-box;
   font-family:"RalewayRegular";
   color: white;
+  scroll-behavior: smooth;
 }
 @font-face {
 font-family: "RalewayRegular";
 src: url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
-
 }
 @font-face {
 font-family: "RalewayBold";
 src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
-
 }
 
 body{
   background-color: #1b2123;
+}
+.ql-snow .ql-tooltip[data-mode="link"]::before {
+  content: "Введите ссылку:";
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after{
+  content: 'Сохранить';
+}
+.ql-snow .ql-tooltip[data-mode="video"]::before {
+  content: "Введите ссылку  :";
+}
+.ql-snow .ql-tooltip.ql-editing input[type="text"]::placeholder{
+  color: transparent;
 }

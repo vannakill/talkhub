@@ -1,4 +1,4 @@
-.post-container form{
+.post-container{
     display: flex;
     justify-content: start;
     align-items: start;
@@ -9,7 +9,8 @@
     margin: 0;
 }
 .button-submit{
-    margin-top: px;
+    margin: 0;
+    padding: 0;
 }
 .input-title{
     margin-top: 15px;
@@ -18,3 +19,34 @@
     border: 0;
     margin:10px 0 ;
 }
+#textarea{
+    color: white;
+    border: 1px solid gray;
+    margin-bottom: 10px;
+    resize: none;
+    background-color: #1b2123;
+}
+span{
+    color: gray;
+}
+.ql-picker-item{
+    color: black;
+}
+#file{
+    margin-top: 10px;
+}
+.editor{
+    width: 300px;
+    margin-bottom: 20px;
+}
+.image-picker::before{
+    content:"Выберите изображение";
+}
+
+.ql-snow .ql-tooltip[data-mode="link"]::before {
+    content: "Введите ссылку:";
+  }
+  .ql-snow .ql-tooltip.ql-editing a.ql-action::after{
+    content: 'Сохранить';
+  }
+

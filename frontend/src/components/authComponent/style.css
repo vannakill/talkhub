@@ -16,7 +16,8 @@
   }
   
   .content-container {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 350px;
   }
   
@@ -25,7 +26,6 @@
     justify-content: center;
     align-items: center;
   
-    width: 500px;
     height: 450px;
   
     margin-top: 5px;
@@ -43,7 +43,6 @@
   
   .subtitle {
     font-size: 11px;
-  
     color: rgba(177, 177, 177, 0.3);
   }
   
@@ -71,9 +70,23 @@
   }
   .register{
     color: grey;
-    margin-left: 10px;
-    
+    margin-left: 10px;  
   }
+
+  .error-message{
+    width: 320px;
+    margin: 5px 0px;
+  }
+
+  .error-message-register{
+    margin: 5px 0px;
+  }
+
+  .error-title{
+    color: red;
+  }
+
+
   
 
   
